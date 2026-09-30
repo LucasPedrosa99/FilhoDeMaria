@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183c35">
+  <meta name="description" content="Uma jornada pela vida de Maria de Nazaré, pela história da devoção mariana, pelas aparições e pelos movimentos que a têm como inspiração.">
+  <title>Nossa Senhora — uma história de fé e esperança</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pine: #183c35;
+      --pine-deep: #102b27;
+      --paper: #f6f4ed;
+      --white: #fffefa;
+      --ink: #202a26;
+      --muted: #65706a;
+      --line: #d9ded5;
+      --coral: #bb5542;
+      --gold: #d7b26d;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); line-height: 1.65; }
+    a { color: inherit; }
+    button, input { font: inherit; }
+    button:focus-visible, a:focus-visible, input:focus-visible, summary:focus-visible { outline: 3px solid var(--coral); outline-offset: 3px; }
+    .skip-link { position: absolute; z-index: 20; top: -60px; left: 16px; padding: 10px 14px; background: var(--white); }
+    .skip-link:focus { top: 12px; }
+    .topbar { position: sticky; top: 0; z-index: 10; height: 70px; padding: 0 clamp(20px, 5vw, 76px); display: flex; align-items: center; justify-content: space-between; gap: 24px; color: var(--white); background: var(--pine-deep); }
+    .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; white-space: nowrap; }
+    .brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid #8ea99d; border-radius: 50%; color: var(--gold); font-family: var(--serif); font-size: 21px; }
+    .brand-name { font-size: 14px; font-weight: 700; letter-spacing: .04em; }
+    .nav { display: flex; gap: clamp(14px, 2.3vw, 34px); align-items: center; }
+    .nav a { color: #e4eae4; font-size: 12px; text-decoration: none; }
+    .nav a:hover { color: var(--gold); }
+    .menu-toggle { display: none; border: 1px solid #779087; border-radius: 3px; color: white; background: transparent; padding: 7px 11px; }
+    .hero { min-height: 620px; overflow: hidden; position: relative; display: grid; grid-template-columns: 1.05fr .95fr; background: var(--pine); color: white; }
+    .hero::before { content: ""; position: absolute; inset: 0 38% 0 0; background-image: radial-gradient(ellipse at 26% 86%, rgba(215,178,109,.14), transparent 45%), repeating-linear-gradient(135deg, transparent 0 52px, rgba(255,255,255,.025) 53px 54px); pointer-events: none; }
+    .hero-copy { position: relative; z-index: 1; align-self: center; padding: 82px clamp(26px, 8vw, 126px); padding-right: 30px; }
+    .eyebrow { margin: 0 0 20px; color: var(--gold); font-size: 11px; font-weight: 700; letter-spacing: .19em; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 500; }
+    h1 { max-width: 660px; margin-bottom: 22px; font-size: clamp(47px, 6.2vw, 82px); line-height: 1.06; }
+    h1 em { color: #e6c887; font-weight: 500; }
+    .hero-copy > p:not(.eyebrow) { max-width: 480px; margin-bottom: 30px; color: #d8e1dc; font-size: 16px; }
+    .hero-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .button-primary { padding: 12px 19px; border: 1px solid var(--gold); color: var(--pine-deep); background: var(--gold); font-size: 12px; font-weight: 700; text-decoration: none; transition: background .2s ease; }
+    .button-primary:hover { background: #e7ca8f; }
+    .text-link { color: white; font-size: 12px; text-underline-offset: 4px; }
+    .hero-art { min-height: 620px; position: relative; background: #6c796b; }
+    .hero-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--pine) 0%, transparent 32%), linear-gradient(0deg, rgba(16,43,39,.4), transparent 38%); }
+    .hero-art img { display: block; width: 100%; height: 100%; min-height: 620px; object-fit: cover; object-position: 72% center; filter: saturate(.78); }
+    .art-caption { position: absolute; z-index: 1; right: 30px; bottom: 22px; color: white; font-size: 10px; text-align: right; text-shadow: 0 1px 5px #17241e; }
+    .intro-strip { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--line); background: var(--white); }
+    .intro-fact { padding: 24px 28px; text-align: center; border-right: 1px solid var(--line); }
+    .intro-fact:last-child { border: 0; }
+    .intro-fact strong { display: block; color: var(--pine); font-family: var(--serif); font-size: 21px; font-weight: 500; }
+    .intro-fact span { color: var(--muted); font-size: 11px; }
+    .section { padding: 92px clamp(22px, 8vw, 124px); }
+    .section-heading { max-width: 740px; margin-bottom: 42px; }
+    .section-heading .eyebrow { color: var(--coral); }
+    h2 { margin-bottom: 13px; color: var(--pine); font-size: clamp(34px, 4.3vw, 55px); line-height: 1.12; }
+    .section-heading > p:last-child { max-width: 660px; color: var(--muted); font-size: 15px; }
+    .history { background: var(--white); }
+    .timeline { max-width: 950px; margin: 0 auto; position: relative; }
+    .timeline::before { content: ""; position: absolute; top: 10px; bottom: 0; left: 115px; width: 1px; background: var(--line); }
+    .era { display: grid; grid-template-columns: 92px 1fr; gap: 48px; padding: 0 0 42px; position: relative; }
+    .era::before { content: ""; position: absolute; top: 8px; left: 110px; width: 11px; height: 11px; border: 2px solid var(--white); border-radius: 50%; background: var(--coral); box-shadow: 0 0 0 1px var(--coral); }
+    .era-date { color: var(--coral); font-size: 11px; font-weight: 700; line-height: 1.4; text-align: right; }
+    .era-content h3 { margin-bottom: 7px; color: var(--pine); font-size: 24px; }
+    .era-content p { max-width: 690px; margin-bottom: 10px; color: #525f58; font-size: 14px; }
+    .source-note { color: #7a837d !important; font-size: 11px !important; }
+    .era-content details { margin-top: 12px; }
+    .era-content summary { width: fit-content; color: var(--pine); font-size: 12px; font-weight: 700; cursor: pointer; }
+    .detail-copy { max-width: 680px; padding: 12px 0 0; color: var(--muted); font-size: 13px; }
+    .belief-band { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #9bad9f; }
+    .belief { padding: 44px clamp(24px, 6vw, 90px); color: var(--white); background: var(--pine); }
+    .belief:nth-child(2) { color: var(--ink); background: #e8ece4; }
+    .belief h3 { margin-bottom: 10px; font-size: 26px; }
+    .belief p { max-width: 520px; margin-bottom: 0; color: inherit; opacity: .84; font-size: 13px; }
+    .apparitions { background: #edf0e9; }
+    .apparition-tools { display: flex; justify-content: space-between; align-items: center; gap: 18px; margin: 0 0 24px; }
+    .filters { display: flex; flex-wrap: wrap; gap: 7px; }
+    .filter { padding: 8px 12px; border: 1px solid #bdc8be; border-radius: 2px; color: var(--pine); background: transparent; font-size: 11px; cursor: pointer; }
+    .filter[aria-pressed="true"] { border-color: var(--pine); color: white; background: var(--pine); }
+    .search-wrap { min-width: min(250px, 100%); }
+    .search-wrap input { width: 100%; padding: 10px 12px; border: 1px solid #bdc8be; border-radius: 2px; color: var(--ink); background: var(--white); font-size: 12px; }
+    .apparition-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; border: 1px solid var(--line); background: var(--line); }
+    .apparition-card { min-height: 0; padding: 0; background: var(--white); }
+    .apparition-card[hidden] { display: none; }
+    .apparition-image { aspect-ratio: 16 / 9; margin: 0; position: relative; overflow: hidden; background: #dfe3dc; }
+    .apparition-image img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .apparition-image figcaption { position: absolute; right: 8px; bottom: 7px; padding: 3px 6px; color: white; background: rgba(16,43,39,.78); font-size: 9px; line-height: 1.4; }
+    .apparition-image a { color: inherit; text-decoration: none; }
+    .apparition-image a:hover { text-decoration: underline; }
+    .apparition-copy { padding: 17px 21px 21px; }
+    .card-meta { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 13px; color: var(--coral); font-size: 10px; font-weight: 700; text-transform: uppercase; }
+    .apparition-card h3 { margin-bottom: 7px; color: var(--pine); font-size: 23px; }
+    .apparition-card p { margin-bottom: 9px; color: #56635b; font-size: 12px; line-height: 1.55; }
+    .status { display: inline-block; padding-top: 7px; color: #526a5e; font-size: 10px; font-weight: 700; }
+    .apparition-card details { margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--line); }
+    .apparition-card summary { color: var(--pine); font-size: 11px; font-weight: 700; cursor: pointer; }
+    .prayer-kind { margin: 11px 0 4px !important; color: var(--coral) !important; font-size: 10px !important; font-weight: 700; text-transform: uppercase; }
+    .prayer-text { color: var(--pine) !important; font-family: var(--serif); font-size: 14px !important; line-height: 1.6 !important; }
+    .prayer-reason { margin-bottom: 0 !important; color: var(--muted) !important; font-size: 11px !important; }
+    .no-results { display: none; padding: 25px 0; color: var(--muted); font-size: 13px; }
+    .note-box { margin-top: 22px; padding: 18px 20px; border-left: 3px solid var(--gold); background: #e4e9e1; color: #4d5b53; font-size: 12px; }
+    .prayers { background: var(--white); }
+    .prayer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; border: 1px solid var(--line); background: var(--line); }
+    .prayer-card { padding: 24px; background: var(--white); }
+    .prayer-card h3 { margin-bottom: 6px; color: var(--pine); font-size: 23px; }
+    .prayer-card .prayer-kind { margin-top: 0 !important; }
+    .prayer-card .prayer-text { margin: 12px 0 8px; }
+    .prayer-card .prayer-reason { margin-bottom: 0; }
+    .prayer-note { margin-top: 20px; }
+    .mary-explanation { background: #e8ece4; }
+    .mary-columns { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid #cbd4ca; }
+    .mary-column { padding: 25px 34px 4px 0; }
+    .mary-column + .mary-column { padding-right: 0; padding-left: 34px; border-left: 1px solid #cbd4ca; }
+    .mary-column h3 { margin-bottom: 9px; color: var(--pine); font-size: 24px; }
+    .mary-column p { margin-bottom: 0; color: #4f5c55; font-size: 13px; }
+    .mary-sources { grid-column: 1 / -1; margin: 20px 0 0; color: #68746c; font-size: 11px; }
+    .mary-sources a { color: var(--pine); text-underline-offset: 3px; }
+    .movements { background: var(--white); }
+    .movement-layout { display: grid; grid-template-columns: .72fr 1.28fr; gap: 65px; align-items: start; }
+    .movement-aside { position: sticky; top: 100px; }
+    .movement-aside h2 { font-size: 43px; }
+    .movement-aside p { color: var(--muted); font-size: 13px; }
+    .movement-list { border-top: 1px solid var(--line); }
+    .movement-item { display: grid; grid-template-columns: 90px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .movement-year { padding-top: 5px; color: var(--coral); font-size: 11px; font-weight: 700; }
+    .movement-item h3 { margin-bottom: 5px; color: var(--pine); font-size: 22px; }
+    .movement-item p { margin: 0; color: #59655e; font-size: 12px; }
+    .marian-themes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; padding-top: 35px; }
+    .theme h3 { margin-bottom: 7px; color: var(--coral); font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .theme p { margin-bottom: 0; color: #59655e; font-size: 12px; }
+    .closing { padding: 70px 22px; color: white; background: var(--pine); text-align: center; }
+    .closing .eyebrow { margin-bottom: 12px; }
+    .closing h2 { color: white; font-size: clamp(30px, 4vw, 45px); }
+    .closing p { max-width: 680px; margin: 0 auto; color: #d8e1dc; font-size: 13px; }
+    .sources { padding: 55px clamp(22px, 8vw, 124px); background: #e8ebe4; }
+    .sources h2 { margin-bottom: 18px; font-size: 27px; }
+    .source-links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+    .source-links a { color: var(--pine); font-size: 12px; text-underline-offset: 3px; }
+    footer { padding: 20px clamp(22px, 8vw, 124px); display: flex; justify-content: space-between; gap: 16px; color: #dce5df; background: var(--pine-deep); font-size: 10px; }
+    .reveal { animation: rise-in .65s both; }
+    @keyframes rise-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+    @media (max-width: 820px) {
+      .hero { grid-template-columns: 1fr .8fr; min-height: 560px; }
+      .hero-copy { padding-left: 30px; }
+      .hero-art, .hero-art img { min-height: 560px; }
+      .section { padding-top: 70px; padding-bottom: 70px; }
+      .apparition-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .movement-layout { gap: 35px; }
+    }
+    @media (max-width: 620px) {
+      .topbar { height: 62px; padding: 0 18px; }
+      .menu-toggle { display: block; }
+      .nav { display: none; position: absolute; top: 62px; left: 0; right: 0; padding: 14px 20px 18px; flex-direction: column; align-items: flex-start; gap: 13px; background: var(--pine-deep); }
+      .nav.open { display: flex; }
+      .hero { display: flex; flex-direction: column; min-height: auto; }
+      .hero-copy { padding: 64px 24px 42px; }
+      h1 { max-width: 480px; font-size: 53px; }
+      .hero-art { min-height: 310px; height: 310px; }
+      .hero-art img { min-height: 310px; }
+      .hero-art::after { background: linear-gradient(0deg, rgba(16,43,39,.28), transparent 50%); }
+      .intro-strip { grid-template-columns: 1fr; }
+      .intro-fact { padding: 15px 20px; border-right: 0; border-bottom: 1px solid var(--line); }
+      .intro-fact:last-child { border-bottom: 0; }
+      .section { padding: 60px 22px; }
+      .timeline::before { left: 78px; }
+      .era { grid-template-columns: 58px 1fr; gap: 38px; padding-bottom: 33px; }
+      .era::before { left: 73px; }
+      .era-date { font-size: 10px; }
+      .era-content h3 { font-size: 21px; }
+      .belief-band { grid-template-columns: 1fr; }
+      .belief { padding: 32px 24px; }
+      .apparition-tools { align-items: stretch; flex-direction: column; }
+      .search-wrap { min-width: 0; }
+      .apparition-grid { grid-template-columns: 1fr; }
+      .apparition-card { min-height: 0; }
+      .prayer-grid { grid-template-columns: 1fr; }
+      .mary-columns { grid-template-columns: 1fr; }
+      .mary-column, .mary-column + .mary-column { padding: 22px 0; border-left: 0; }
+      .mary-column + .mary-column { border-top: 1px solid #cbd4ca; }
+      .movement-layout { grid-template-columns: 1fr; gap: 18px; }
+      .movement-aside { position: static; }
+      .movement-aside h2 { font-size: 37px; }
+      .movement-item { grid-template-columns: 60px 1fr; gap: 13px; }
+      .marian-themes { grid-template-columns: 1fr; gap: 20px; }
+      footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Nossa Senhora, início">
+      <span class="brand-mark" aria-hidden="true">M</span>
+      <span class="brand-name">NOSSA SENHORA</span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="nav" id="site-nav" aria-label="Navegação principal">
+      <a href="#historia">História</a>
+      <a href="#aparicoes">Aparições</a>
+      <a href="#oracoes">Orações</a>
+      <a href="#filhos-de-maria">Filhos de Maria</a>
+      <a href="#movimentos">Movimentos</a>
+      <a href="#fontes">Fontes</a>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Uma vida · muitos nomes · uma história</p>
+        <h1 id="hero-title">Maria de Nazaré, <em>mulher da promessa.</em></h1>
+        <p>Da Galileia do primeiro século às devoções que cruzaram oceanos: uma jornada pela vida de Maria, pelas aparições e pelos movimentos que encontram nela um sinal de fé e esperança.</p>
+        <div class="hero-actions">
+          <a class="button-primary" href="#historia">Percorrer a história</a>
+          <a class="text-link" href="#aparicoes">Ir às aparições ↓</a>
+        </div>
+      </div>
+      <figure class="hero-art">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Leonardo_da_Vinci_-_Annunciazione_-_Google_Art_Project.jpg" alt="Maria e o anjo Gabriel na pintura A Anunciação, de Leonardo da Vinci" fetchpriority="high">
+        <figcaption class="art-caption">A Anunciação · Leonardo da Vinci, c. 1472–1476</figcaption>
+      </figure>
+    </section>
+
+    <section class="intro-strip" aria-label="Resumo da narrativa">
+      <div class="intro-fact"><strong>Galileia, século I</strong><span>O contexto histórico de Maria</span></div>
+      <div class="intro-fact"><strong>Escritura e tradição</strong><span>Fontes diferentes, lidas com cuidado</span></div>
+      <div class="intro-fact"><strong>Uma devoção global</strong><span>Expressa de muitos modos e culturas</span></div>
+    </section>
+
+    <section class="section history" id="historia" aria-labelledby="history-title">
+      <div class="section-heading">
+        <p class="eyebrow">01 · A vida e a memória</p>
+        <h2 id="history-title">Uma história em camadas</h2>
+        <p>Os Evangelhos contam momentos essenciais; os primeiros cristãos os meditaram, e séculos de arte, liturgia e piedade popular ampliaram a forma como Maria é lembrada. Aqui, essas camadas não se confundem.</p>
+      </div>
+      <div class="timeline">
+        <article class="era">
+          <div class="era-date">c. 20 a.C.–<br>30 d.C.</div>
+          <div class="era-content">
+            <h3>Nazaré e a Galileia</h3>
+            <p>Maria — Miriam, em sua forma semítica — viveu numa sociedade judaica sob domínio romano. Os Evangelhos a situam em Nazaré e a identificam como mãe de Jesus. Pouco se sabe de sua biografia fora dos textos cristãos; os nomes de seus pais e muitos detalhes de sua infância vêm de tradições posteriores, não dos Evangelhos canônicos.</p>
+            <p class="source-note">Referências: Lucas 1–2; Mateus 1–2; Marcos 6:3. Os textos não oferecem uma data exata para seu nascimento.</p>
+            <details><summary>O que os textos não dizem</summary><div class="detail-copy">A imagem popular de Maria mistura fontes distintas. Os Evangelhos não informam sua idade, a data de seu nascimento nem os nomes de seus pais. O Protoevangelho de Tiago, escrito no século II e não incluído no cânon bíblico, influenciou tradições sobre Joaquim e Ana e a infância de Maria.</div></details>
+          </div>
+        </article>
+        <article class="era">
+          <div class="era-date">Início da<br>vida pública</div>
+          <div class="era-content">
+            <h3>Anunciação, visitação e nascimento</h3>
+            <p>No relato de Lucas, o anjo Gabriel anuncia a Maria que ela será mãe de Jesus; sua resposta — “faça-se em mim segundo a tua palavra” — tornou-se central na espiritualidade cristã. Maria visita Isabel e proclama o Magnificat, cântico de louvor e justiça. Mateus narra o nascimento de Jesus, a visita dos magos e a fuga da família para o Egito.</p>
+            <p class="source-note">Referências: Lucas 1:26–56; 2:1–20; Mateus 1:18–2:23. Os relatos têm perspectivas próprias.</p>
+          </div>
+        </article>
+        <article class="era">
+          <div class="era-date">Vida pública<br>de Jesus</div>
+          <div class="era-content">
+            <h3>Caná e o caminho com Jesus</h3>
+            <p>João apresenta Maria nas bodas de Caná, onde Jesus realiza o primeiro sinal narrado nesse Evangelho. A frase que ela dirige aos serventes — “Fazei tudo o que ele vos disser” — resume, para muitos cristãos, sua função de apontar para Cristo. Os Evangelhos sinóticos também mencionam a família de Jesus, embora nem sempre desenvolvam o papel de Maria.</p>
+            <p class="source-note">Referências: João 2:1–12; Marcos 3:31–35; Mateus 12:46–50; Lucas 8:19–21.</p>
+          </div>
+        </article>
+        <article class="era">
+          <div class="era-date">Paixão e<br>primeira Igreja</div>
+          <div class="era-content">
+            <h3>A cruz e a comunidade nascente</h3>
+            <p>No Evangelho de João, Maria está junto à cruz e é confiada ao discípulo amado. Depois da ressurreição, Atos dos Apóstolos a coloca em oração com os discípulos em Jerusalém, antes de Pentecostes. É seu último retrato explícito no Novo Testamento: presente entre a comunidade que espera o Espírito.</p>
+            <p class="source-note">Referências: João 19:25–27; Atos 1:12–14. O texto bíblico não descreve os últimos anos de sua vida.</p>
+          </div>
+        </article>
+        <article class="era">
+          <div class="era-date">Séculos<br>II–V</div>
+          <div class="era-content">
+            <h3>As primeiras comunidades cristãs</h3>
+            <p>Nos primeiros séculos, a reflexão sobre Maria acompanha a reflexão sobre quem é Jesus. Em Éfeso, no ano 431, o concílio defendeu o título grego <em>Theotokos</em> (“Mãe de Deus”, literalmente “a que deu à luz Deus”) para afirmar a unidade da pessoa de Cristo — não para declarar Maria origem da divindade. A festa e a oração mariana ganham expressão na liturgia e na vida comunitária.</p>
+            <p class="source-note">A oração Sub tuum praesidium, preservada num papiro antigo, testemunha uma invocação mariana de séculos iniciais.</p>
+          </div>
+        </article>
+        <article class="era">
+          <div class="era-date">Séculos<br>VI–XV</div>
+          <div class="era-content">
+            <h3>Liturgia, arte e devoção medieval</h3>
+            <p>Novas festas, hinos e imagens difundem-se entre Oriente e Ocidente. Mosteiros, catedrais e artistas representam Maria como mãe, intercessora e rainha. A oração da Ave-Maria toma forma ao longo do tempo; o rosário desenvolve-se na espiritualidade medieval, enquanto santuários e peregrinações aproximam a devoção da vida cotidiana.</p>
+            <details><summary>Uma tradição viva, não imóvel</summary><div class="detail-copy">A devoção mariana nunca foi idêntica em toda parte. Ícones orientais, cantos latinos, santuários locais e festas populares refletem línguas, teologias e culturas diversas. O rosário, em sua forma hoje mais conhecida, consolidou-se gradualmente, e não surgiu de uma só vez.</div></details>
+          </div>
+        </article>
+        <article class="era">
+          <div class="era-date">Séculos<br>XVI–XVIII</div>
+          <div class="era-content">
+            <h3>Reformas e novos mundos</h3>
+            <p>A Reforma e a resposta católica renovam debates sobre os santos, a intercessão e as imagens. Ao mesmo tempo, a expansão colonial leva devoções marianas às Américas, África e Ásia — num encontro desigual de povos e culturas, que também produz expressões locais próprias. Em 1531, a tradição de Guadalupe passa a marcar profundamente a identidade religiosa do México. No Brasil, em 1717, pescadores encontraram uma imagem de Nossa Senhora da Conceição no rio Paraíba do Sul; a devoção a Nossa Senhora Aparecida cresceu a partir desse relato, que não é uma aparição mariana.</p>
+            <p class="source-note">A recepção de cada devoção deve ser entendida em seu contexto histórico, social e indígena. Referência brasileira: Santuário Nacional de Aparecida.</p>
+          </div>
+        </article>
+        <article class="era">
+          <div class="era-date">Séculos<br>XIX–XXI</div>
+          <div class="era-content">
+            <h3>Dogmas, santuários e mundo contemporâneo</h3>
+            <p>A Igreja Católica define como dogmas a Imaculada Conceição (1854) e a Assunção de Maria (1950). Lourdes e Fátima tornam-se grandes destinos de peregrinação; novas comunidades e movimentos organizam a espiritualidade mariana. O Concílio Vaticano II (1962–1965) trata de Maria no mistério de Cristo e da Igreja, reforçando uma leitura cristocêntrica.</p>
+            <p class="source-note">A devoção é incentivada, mas, na doutrina católica, Maria é venerada; a adoração é reservada a Deus.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="belief-band" aria-label="Doutrina e discernimento">
+      <article class="belief">
+        <p class="eyebrow">Doutrina católica</p>
+        <h3>Dois dogmas definidos</h3>
+        <p>A Imaculada Conceição (1854) ensina que Maria foi preservada do pecado original desde o primeiro instante de sua concepção. A Assunção (1950) ensina que, ao fim de sua vida terrena, ela foi elevada em corpo e alma à glória celeste. São formulações da Igreja Católica, não descrições explícitas de episódios bíblicos.</p>
+      </article>
+      <article class="belief">
+        <p class="eyebrow">Discernimento eclesial</p>
+        <h3>Aparição não é obrigação de fé</h3>
+        <p>Mesmo quando uma devoção recebe aprovação eclesial, as chamadas revelações privadas não completam a Revelação cristã nem exigem assentimento como os dogmas. A Santa Sé publicou normas atualizadas de discernimento em 2024; “nihil obstat” permite a experiência pastoral de uma devoção sem declarar comprovada a origem sobrenatural dos acontecimentos.</p>
+      </article>
+    </section>
+
+    <section class="section apparitions" id="aparicoes" aria-labelledby="apparitions-title">
+      <div class="section-heading">
+        <p class="eyebrow">02 · Relatos e discernimento</p>
+        <h2 id="apparitions-title">Aparições marianas</h2>
+        <p>Ao longo dos séculos, pessoas e comunidades relataram encontros com Maria. Veja alguns dos casos mais conhecidos, com datas aproximadas e uma indicação cuidadosa de como a Igreja Católica os trata.</p>
+      </div>
+      <div class="apparition-tools">
+        <div class="filters" role="group" aria-label="Filtrar aparições por período">
+          <button class="filter" type="button" data-period="todos" aria-pressed="true">Todas</button>
+          <button class="filter" type="button" data-period="antigas" aria-pressed="false">Até 1700</button>
+          <button class="filter" type="button" data-period="modernas" aria-pressed="false">1700–1899</button>
+          <button class="filter" type="button" data-period="recentes" aria-pressed="false">Desde 1900</button>
+        </div>
+        <label class="search-wrap"><span class="skip-link">Buscar aparição por nome ou lugar</span><input id="apparition-search" type="search" placeholder="Buscar por nome ou lugar" aria-label="Buscar aparição por nome ou lugar"></label>
+      </div>
+      <div class="apparition-grid" id="apparition-grid">
+        <article class="apparition-card" data-period="antigas" data-search="guadalupe mexico tepeyac juan diego 1531">
+          <figure class="apparition-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Our_Lady_of_Guadalupe.JPG?width=900" alt="Imagem de Nossa Senhora de Guadalupe preservada na basílica" loading="lazy" decoding="async"><figcaption><a href="https://commons.wikimedia.org/wiki/File:Our_Lady_of_Guadalupe.JPG" target="_blank" rel="noreferrer">Imagem: Wikimedia Commons</a></figcaption></figure>
+          <div class="apparition-copy"><div class="card-meta"><span>México</span><span>1531</span></div><h3>Guadalupe</h3>
+          <p>Segundo a tradição, Maria teria aparecido a Juan Diego no Tepeyac, perto da Cidade do México. O relato é associado à imagem preservada na basílica e à formação de uma devoção de grande alcance nas Américas.</p>
+          <span class="status">Devoção aprovada e difundida</span>
+          <details><summary>Oração relacionada e seu sentido</summary><p class="prayer-kind">Prece sugerida para meditação</p><p class="prayer-text">Nossa Senhora de Guadalupe, Mãe que acompanha os povos das Américas, acolhei nossas famílias e ensinai-nos a viver com dignidade, ternura e solidariedade. Conduzi-nos sempre a Jesus. Amém.</p><p class="prayer-reason">Relaciona-se à devoção de Guadalupe como sinal de acolhida e esperança para comunidades indígenas e latino-americanas.</p></details></div>
+        </article>
+        <article class="apparition-card" data-period="antigas" data-search="laus frança benoit rencurel 1664">
+          <figure class="apparition-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Notre-Dame_du_Laus_(la_statue_Notre-Dame_des_Gr%C3%A2ces).JPG?width=900" alt="Estátua de Nossa Senhora das Graças no santuário de Laus" loading="lazy" decoding="async"><figcaption><a href="https://commons.wikimedia.org/wiki/File:Notre-Dame_du_Laus_(la_statue_Notre-Dame_des_Gr%C3%A2ces).JPG" target="_blank" rel="noreferrer">Imagem: Wikimedia Commons</a></figcaption></figure>
+          <div class="apparition-copy"><div class="card-meta"><span>Laus, França</span><span>1664–1718</span></div><h3>Notre-Dame du Laus</h3>
+          <p>Benoîte Rencurel relatou aparições ao longo de décadas nos Alpes franceses. O reconhecimento oficial do caráter sobrenatural dos acontecimentos foi declarado pela diocese de Gap em 2008.</p>
+          <span class="status">Reconhecimento diocesano · 2008</span>
+          <details><summary>Oração relacionada e seu sentido</summary><p class="prayer-kind">Prece sugerida para meditação</p><p class="prayer-text">Nossa Senhora do Laus, Mãe de reconciliação, acompanhai quem busca recomeçar, dai consolo a quem sofre e fortalecei em nós a esperança. Levai-nos ao encontro de Cristo. Amém.</p><p class="prayer-reason">O santuário de Laus é associado à reconciliação, à peregrinação e à busca de consolo espiritual.</p></details></div>
+        </article>
+        <article class="apparition-card" data-period="modernas" data-search="rua du bac medalha milagrosa catarina laboure paris frança 1830">
+          <figure class="apparition-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Miraculous_medal.jpg?width=900" alt="Medalha Milagrosa associada às visões de Rue du Bac" loading="lazy" decoding="async"><figcaption><a href="https://commons.wikimedia.org/wiki/File:Miraculous_medal.jpg" target="_blank" rel="noreferrer">Imagem: Wikimedia Commons</a></figcaption></figure>
+          <div class="apparition-copy"><div class="card-meta"><span>Paris, França</span><span>1830</span></div><h3>Rue du Bac</h3>
+          <p>Catarina Labouré, religiosa das Filhas da Caridade, contou ter recebido visões associadas à Medalha da Imaculada Conceição, conhecida popularmente como Medalha Milagrosa.</p>
+          <span class="status">Devoção aprovada · 1836</span>
+          <details><summary>Oração relacionada e seu sentido</summary><p class="prayer-kind">Invocação tradicional da Medalha Milagrosa</p><p class="prayer-text">Ó Maria concebida sem pecado, rogai por nós que recorremos a vós.</p><p class="prayer-reason">A frase aparece na Medalha Milagrosa, associada às visões relatadas por Catarina Labouré, e tornou-se uma invocação popular.</p></details></div>
+        </article>
+        <article class="apparition-card" data-period="modernas" data-search="la salette frança maximino melania 1846">
+          <figure class="apparition-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sanctuaire_de_Notre-Dame_de_La_Salette_-_Statue_05.jpg?width=900" alt="Estátua de Nossa Senhora de La Salette no santuário francês" loading="lazy" decoding="async"><figcaption><a href="https://commons.wikimedia.org/wiki/File:Sanctuaire_de_Notre-Dame_de_La_Salette_-_Statue_05.jpg" target="_blank" rel="noreferrer">Imagem: Wikimedia Commons</a></figcaption></figure>
+          <div class="apparition-copy"><div class="card-meta"><span>La Salette, França</span><span>1846</span></div><h3>La Salette</h3>
+          <p>Dois jovens pastores, Maximin Giraud e Mélanie Calvat, relataram uma aparição nos Alpes. A aprovação do culto à Nossa Senhora de La Salette veio do bispo de Grenoble em 1851.</p>
+          <span class="status">Culto aprovado localmente · 1851</span>
+          <details><summary>Oração relacionada e seu sentido</summary><p class="prayer-kind">Prece sugerida para meditação</p><p class="prayer-text">Nossa Senhora de La Salette, ajudai-nos a escutar com atenção, a buscar reconciliação e a cuidar com responsabilidade uns dos outros e da criação. Amém.</p><p class="prayer-reason">O relato de La Salette é tradicionalmente meditado como chamado à conversão, à oração e à reconciliação.</p></details></div>
+        </article>
+        <article class="apparition-card" data-period="modernas" data-search="lourdes frança bernadette soubirous 1858 gruta massabielle">
+          <figure class="apparition-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Grotto_of_Lourdes_-_Lourdes_2014_(3).JPG?width=900" alt="Gruta de Massabielle, local associado às aparições de Lourdes" loading="lazy" decoding="async"><figcaption><a href="https://commons.wikimedia.org/wiki/File:Grotto_of_Lourdes_-_Lourdes_2014_(3).JPG" target="_blank" rel="noreferrer">Imagem: Wikimedia Commons</a></figcaption></figure>
+          <div class="apparition-copy"><div class="card-meta"><span>Lourdes, França</span><span>1858</span></div><h3>Lourdes</h3>
+          <p>Bernadette Soubirous relatou dezoito aparições na gruta de Massabielle. O bispo local reconheceu os acontecimentos em 1862; Lourdes tornou-se um dos maiores centros de peregrinação e cuidado aos enfermos.</p>
+          <span class="status">Reconhecida pelo bispo local · 1862</span>
+          <details><summary>Oração relacionada e seu sentido</summary><p class="prayer-kind">Prece sugerida para meditação</p><p class="prayer-text">Nossa Senhora de Lourdes, acompanhai as pessoas enfermas, suas famílias e quem delas cuida. Dai-nos esperança nas provações e um coração atento à dignidade de cada pessoa. Amém.</p><p class="prayer-reason">A devoção de Lourdes está especialmente ligada à peregrinação, à oração pelos enfermos e ao cuidado solidário.</p></details></div>
+        </article>
+        <article class="apparition-card" data-period="modernas" data-search="pontmain frança guerra prússia 1871">
+          <figure class="apparition-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pontmain_(53)_Grange_de_l%27apparition.jpg?width=900" alt="Celeiro de Pontmain, local associado ao relato da aparição de 1871" loading="lazy" decoding="async"><figcaption><a href="https://commons.wikimedia.org/wiki/File:Pontmain_(53)_Grange_de_l%27apparition.jpg" target="_blank" rel="noreferrer">Imagem: Wikimedia Commons</a></figcaption></figure>
+          <div class="apparition-copy"><div class="card-meta"><span>Pontmain, França</span><span>1871</span></div><h3>Pontmain</h3>
+          <p>Durante a Guerra Franco-Prussiana, crianças disseram ver Maria no céu da aldeia. O bispo de Laval reconheceu a aparição em 1872; a mensagem ficou associada à oração e à esperança.</p>
+          <span class="status">Reconhecida pelo bispo local · 1872</span>
+          <details><summary>Oração relacionada e seu sentido</summary><p class="prayer-kind">Prece sugerida para meditação</p><p class="prayer-text">Nossa Senhora da Esperança, em tempos de medo e conflito, sustentai os que trabalham pela paz. Ensinai-nos a rezar com confiança e a levar esperança aos nossos próximos. Amém.</p><p class="prayer-reason">A memória de Pontmain, ocorrida durante uma guerra, é associada à confiança, à oração e à esperança.</p></details></div>
+        </article>
+        <article class="apparition-card" data-period="recentes" data-search="fátima portugal lucia francisco jacinta 1917 cova da iria">
+          <figure class="apparition-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Fatima_0751_(19182694573).jpg?width=900" alt="Imagem de Nossa Senhora de Fátima na Capelinha das Aparições" loading="lazy" decoding="async"><figcaption><a href="https://commons.wikimedia.org/wiki/File:Fatima_0751_(19182694573).jpg" target="_blank" rel="noreferrer">Imagem: Wikimedia Commons</a></figcaption></figure>
+          <div class="apparition-copy"><div class="card-meta"><span>Fátima, Portugal</span><span>1917</span></div><h3>Fátima</h3>
+          <p>Lúcia dos Santos e seus primos Francisco e Jacinta Marto relataram aparições na Cova da Iria. O bispo de Leiria declarou dignas de crédito as aparições em 1930. O santuário tornou-se um centro mundial de peregrinação.</p>
+          <span class="status">Aparições reconhecidas localmente · 1930</span>
+          <details><summary>Oração relacionada e seu sentido</summary><p class="prayer-kind">Oração do Anjo, transmitida na tradição de Fátima</p><p class="prayer-text">Meu Deus, eu creio, adoro, espero e amo-vos. Peço-vos perdão pelos que não creem, não adoram, não esperam e não vos amam.</p><p class="prayer-reason">Segundo o relato dos pastorinhos, esta oração foi ensinada pelo Anjo em 1916 e expressa adoração, fé e reparação.</p></details></div>
+        </article>
+        <article class="apparition-card" data-period="recentes" data-search="beauraing belgica cinco crianças 1932 1933">
+          <figure class="apparition-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Notre_Dame_de_Beauraing-004.jpg?width=900" alt="Santuário de Nossa Senhora de Beauraing, na Bélgica" loading="lazy" decoding="async"><figcaption><a href="https://commons.wikimedia.org/wiki/File:Notre_Dame_de_Beauraing-004.jpg" target="_blank" rel="noreferrer">Imagem: Wikimedia Commons</a></figcaption></figure>
+          <div class="apparition-copy"><div class="card-meta"><span>Beauraing, Bélgica</span><span>1932–1933</span></div><h3>Beauraing</h3>
+          <p>Cinco crianças disseram ver Maria perto de um espinheiro. Em 1949, o bispo de Namur reconheceu o caráter sobrenatural das aparições.</p>
+          <span class="status">Reconhecidas pelo bispo local · 1949</span>
+          <details><summary>Oração relacionada e seu sentido</summary><p class="prayer-kind">Prece sugerida para meditação</p><p class="prayer-text">Nossa Senhora do Coração de Ouro, ajudai-nos a perseverar na oração, a escolher a bondade e a acolher o convite à conversão. Amém.</p><p class="prayer-reason">A imagem do Coração de Ouro é um dos símbolos próprios da devoção de Beauraing.</p></details></div>
+        </article>
+        <article class="apparition-card" data-period="recentes" data-search="banneux belgica mariette beco 1933 virgem dos pobres">
+          <figure class="apparition-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Banneux_Maagd_der_armen.jpg?width=900" alt="Imagem de Nossa Senhora, Virgem dos Pobres de Banneux" loading="lazy" decoding="async"><figcaption><a href="https://commons.wikimedia.org/wiki/File:Banneux_Maagd_der_armen.jpg" target="_blank" rel="noreferrer">Imagem: Wikimedia Commons</a></figcaption></figure>
+          <div class="apparition-copy"><div class="card-meta"><span>Banneux, Bélgica</span><span>1933</span></div><h3>Banneux</h3>
+          <p>Mariette Beco relatou aparições de Maria, que se apresentou como “Virgem dos Pobres”. O bispo de Liège reconheceu as aparições em 1949.</p>
+          <span class="status">Reconhecidas pelo bispo local · 1949</span>
+          <details><summary>Oração relacionada e seu sentido</summary><p class="prayer-kind">Prece sugerida para meditação</p><p class="prayer-text">Virgem dos Pobres, ensinai-nos a reconhecer Cristo em quem sofre e a oferecer ajuda com respeito e simplicidade. Acompanhai os que vivem na pobreza. Amém.</p><p class="prayer-reason">A invocação retoma o título “Virgem dos Pobres” associado a Banneux e sua ênfase na esperança e no cuidado.</p></details></div>
+        </article>
+        <article class="apparition-card" data-period="recentes" data-search="akita japão irmã agnes sasagawa 1973">
+          <figure class="apparition-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Virgin_Mary_of_Akita_Japan.jpg?width=900" alt="Estátua de Nossa Senhora de Akita no Japão" loading="lazy" decoding="async"><figcaption><a href="https://commons.wikimedia.org/wiki/File:Virgin_Mary_of_Akita_Japan.jpg" target="_blank" rel="noreferrer">Imagem: Wikimedia Commons</a></figcaption></figure>
+          <div class="apparition-copy"><div class="card-meta"><span>Akita, Japão</span><span>1973</span></div><h3>Akita</h3>
+          <p>A irmã Agnes Sasagawa relatou experiências numa comunidade religiosa em Akita. Em 1984, o bispo local autorizou a veneração de Nossa Senhora de Akita; a Santa Sé não emitiu uma definição universal sobre sua sobrenaturalidade.</p>
+          <span class="status">Autorização de devoção local · 1984</span>
+          <details><summary>Oração relacionada e seu sentido</summary><p class="prayer-kind">Prece sugerida para meditação</p><p class="prayer-text">Nossa Senhora de Akita, ajudai-nos a permanecer fiéis à oração, a buscar a paz e a viver com humildade e confiança em Deus. Amém.</p><p class="prayer-reason">É uma prece editorial inspirada na espiritualidade de oração e conversão associada ao santuário; não é apresentada como fórmula oficial das aparições.</p></details></div>
+        </article>
+        <article class="apparition-card" data-period="recentes" data-search="kibeho ruanda africa 1981 1989 alphonse mumureke natalie mukamazimpaka marie claire">
+          <figure class="apparition-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kiriziya_ya_Kibeho.jpg?width=900" alt="Santuário de Nossa Senhora de Kibeho, em Ruanda" loading="lazy" decoding="async"><figcaption><a href="https://commons.wikimedia.org/wiki/File:Kiriziya_ya_Kibeho.jpg" target="_blank" rel="noreferrer">Imagem: Wikimedia Commons</a></figcaption></figure>
+          <div class="apparition-copy"><div class="card-meta"><span>Kibeho, Ruanda</span><span>1981–1989</span></div><h3>Kibeho</h3>
+          <p>Relatos de estudantes em Kibeho foram investigados pela Igreja local. Em 2001, o bispo de Gikongoro reconheceu como autênticas as aparições atribuídas a três videntes. O santuário é conhecido como Nossa Senhora das Dores.</p>
+          <span class="status">Reconhecimento diocesano · 2001</span>
+          <details><summary>Oração relacionada e seu sentido</summary><p class="prayer-kind">Terço das Sete Dores e prece sugerida</p><p class="prayer-text">Nossa Senhora das Dores de Kibeho, ensinai-nos a rejeitar o ódio, a buscar a reconciliação e a rezar pela paz em Ruanda e em todos os povos. Amém.</p><p class="prayer-reason">A devoção das Sete Dores foi associada ao relato atribuído a Marie Claire; a prece acima é uma síntese devocional, não uma citação da aparição.</p></details></div>
+        </article>
+        <article class="apparition-card" data-period="recentes" data-search="medjugorje bósnia herzegovina 1981 2024 nihil obstat">
+          <figure class="apparition-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Statue_of_Our_Lady_of_Medjugorje_(cropped).jpg?width=900" alt="Estátua de Nossa Senhora em Medjugorje" loading="lazy" decoding="async"><figcaption><a href="https://commons.wikimedia.org/wiki/File:Statue_of_Our_Lady_of_Medjugorje_(cropped).jpg" target="_blank" rel="noreferrer">Imagem: Wikimedia Commons</a></figcaption></figure>
+          <div class="apparition-copy"><div class="card-meta"><span>Bósnia e Herzegovina</span><span>Desde 1981</span></div><h3>Medjugorje</h3>
+          <p>Os relatos iniciados em 1981 ainda não receberam declaração eclesial de sobrenaturalidade. Em 2024, o Vaticano concedeu nihil obstat à experiência espiritual ligada ao local, sem autenticar as aparições.</p>
+          <span class="status">Nihil obstat para devoção · 2024</span>
+          <details><summary>Oração relacionada e seu sentido</summary><p class="prayer-kind">Prece sugerida à Rainha da Paz</p><p class="prayer-text">Rainha da Paz, ajudai-nos a cultivar a reconciliação em nossas famílias e comunidades. Inspirai-nos a buscar a paz com justiça, oração e respeito. Amém.</p><p class="prayer-reason">A prece retoma o título “Rainha da Paz” ligado à devoção local; não implica reconhecimento das aparições como sobrenaturais.</p></details></div>
+        </article>
+      </div>
+      <p class="no-results" id="no-results" role="status">Nenhum relato corresponde à busca. Tente outro nome ou local.</p>
+      <div class="note-box"><strong>Como ler os status:</strong> o reconhecimento de uma devoção, a permissão para peregrinações e a afirmação de que um acontecimento é sobrenatural são decisões diferentes. Os termos variam conforme a época e as normas vigentes. Um caso não listado aqui não é, por isso, automaticamente falso ou condenado. Consulte sempre a diocese e as orientações atuais da Santa Sé.</div>
+    </section>
+
+    <section class="section prayers" id="oracoes" aria-labelledby="prayers-title">
+      <div class="section-heading">
+        <p class="eyebrow">03 · Orações e devoção</p>
+        <h2 id="prayers-title">Orações marianas</h2>
+        <p>Orações tradicionais da vida cristã, junto de uma oração bíblica de Maria e suas palavras. As fórmulas podem variar um pouco entre livros e comunidades.</p>
+      </div>
+      <div class="prayer-grid">
+        <article class="prayer-card">
+          <h3>Ave-Maria</h3>
+          <p class="prayer-kind">Oração tradicional · Lucas 1:28, 42</p>
+          <p class="prayer-text">Ave-Maria, cheia de graça, o Senhor é convosco. Bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus. Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora de nossa morte. Amém.</p>
+          <p class="prayer-reason">Reúne saudações do Evangelho e um pedido de intercessão; é rezada individualmente e no rosário.</p>
+        </article>
+        <article class="prayer-card">
+          <h3>Salve-Rainha</h3>
+          <p class="prayer-kind">Antífona e oração tradicional</p>
+          <p class="prayer-text">Salve, Rainha, Mãe de misericórdia, vida, doçura e esperança nossa, salve! A vós bradamos, os degredados filhos de Eva; a vós suspiramos, gemendo e chorando neste vale de lágrimas. Eia, pois, advogada nossa, esses vossos olhos misericordiosos a nós volvei; e depois deste desterro, mostrai-nos Jesus, bendito fruto do vosso ventre. Ó clemente, ó piedosa, ó doce sempre Virgem Maria. Rogai por nós, Santa Mãe de Deus, para que sejamos dignos das promessas de Cristo. Amém.</p>
+          <p class="prayer-reason">Pede a intercessão de Maria e conclui frequentemente o rosário.</p>
+        </article>
+        <article class="prayer-card">
+          <h3>Lembrai-vos</h3>
+          <p class="prayer-kind">Súplica mariana tradicional</p>
+          <p class="prayer-text">Lembrai-vos, ó piíssima Virgem Maria, que nunca se ouviu dizer que algum daqueles que têm recorrido à vossa proteção, implorado a vossa assistência e reclamado o vosso socorro fosse por vós desamparado. Animado eu, pois, com igual confiança, a vós, Virgem entre todas singular, como a Mãe recorro, de vós me valho e, gemendo sob o peso dos meus pecados, me prostro aos vossos pés. Não rejeiteis as minhas súplicas, ó Mãe do Verbo de Deus humanado, mas dignai-vos de as ouvir propícia e de me alcançar o que vos rogo. Amém.</p>
+          <p class="prayer-reason">Uma oração de confiança e pedido de intercessão, também conhecida pelo nome latino <em>Memorare</em>.</p>
+        </article>
+        <article class="prayer-card">
+          <h3>Ângelus</h3>
+          <p class="prayer-kind">Oração tradicional sobre a Anunciação</p>
+          <p class="prayer-text">O Anjo do Senhor anunciou a Maria. E ela concebeu do Espírito Santo. Ave-Maria.<br>Eis aqui a serva do Senhor. Faça-se em mim segundo a vossa palavra. Ave-Maria.<br>E o Verbo se fez carne. E habitou entre nós. Ave-Maria.<br>Rogai por nós, Santa Mãe de Deus, para que sejamos dignos das promessas de Cristo.</p>
+          <p class="prayer-text">Oremos: Infundi, Senhor, em nossos corações a vossa graça, para que, conhecendo pela anunciação do Anjo a encarnação de Jesus Cristo, vosso Filho, cheguemos, por sua paixão e cruz, à glória da ressurreição. Pelo mesmo Cristo, Senhor nosso. Amém.</p>
+          <p class="prayer-reason">Recorda a Anunciação e a encarnação de Jesus; é tradicionalmente rezado pela manhã, ao meio-dia e à tarde.</p>
+        </article>
+        <article class="prayer-card">
+          <h3>Magnificat</h3>
+          <p class="prayer-kind">Cântico bíblico de Maria · Lucas 1:46–55</p>
+          <p class="prayer-text">“A minha alma engrandece o Senhor, e exulta meu espírito em Deus, meu Salvador.”</p>
+          <p class="prayer-reason">É a oração de louvor pronunciada por Maria na visita a Isabel. Dirige-se a Deus, não a Maria, e celebra sua misericórdia e atenção aos humildes.</p>
+        </article>
+      </div>
+      <div class="note-box prayer-note"><strong>Sobre as preces dos cards:</strong> as fórmulas da Medalha Milagrosa e a Oração do Anjo de Fátima são identificadas como tradições próprias desses relatos. As demais são sugestões editoriais para meditação, não orações oficiais, reveladas ou aprovadas pelas dioceses.</div>
+    </section>
+
+    <section class="section mary-explanation" id="filhos-de-maria" aria-labelledby="mary-title">
+      <div class="section-heading">
+        <p class="eyebrow">04 · Maria na fé católica</p>
+        <h2 id="mary-title">Ser filho de Maria é seguir Jesus com ela</h2>
+        <p>Na linguagem da devoção católica, chamar Maria de mãe expressa uma relação espiritual de confiança, discipulado e oração. Essa relação conduz a Cristo, não o substitui.</p>
+      </div>
+      <div class="mary-columns">
+        <article class="mary-column">
+          <h3>Uma maternidade espiritual</h3>
+          <p>Ao pé da cruz, Jesus confia sua mãe ao discípulo amado (João 19:26–27). A Igreja lê nesse gesto um convite aos fiéis para acolher Maria como mãe na vida de fé. Ser seu filho é aprender com seu “sim”, guardar a Palavra e caminhar com ela em direção a Jesus.</p>
+        </article>
+        <article class="mary-column">
+          <h3>Venerar não é adorar</h3>
+          <p>A Igreja Católica não adora Maria: a adoração pertence somente a Deus. Maria recebe veneração singular, jamais adoração. Quando recorremos a ela, pedimos que interceda por nós e apresente nossos pedidos a Jesus; não a tratamos como deusa, fonte independente de graças ou substituta de Cristo, único mediador e Salvador.</p>
+        </article>
+        <p class="mary-sources">Referências: João 19:26–27; 1 Timóteo 2:5; <a href="https://www.vatican.va/archive/catechism_po/index_new/p1s2c3a9_946-975_po.html" target="_blank" rel="noreferrer">Catecismo da Igreja Católica, §971</a>; <a href="https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_po.html" target="_blank" rel="noreferrer">Lumen gentium, §§60–62</a>.</p>
+      </div>
+    </section>
+
+    <section class="section movements" id="movimentos" aria-labelledby="movements-title">
+      <div class="movement-layout">
+        <aside class="movement-aside">
+          <p class="eyebrow">05 · Comunidades e espiritualidade</p>
+          <h2 id="movements-title">Movimentos marianos</h2>
+          <p>Ordens, confrarias, associações e movimentos têm promovido formas diversas de espiritualidade inspiradas em Maria. Nem todos têm a mesma estrutura ou alcance; esta seleção destaca alguns marcos históricos.</p>
+        </aside>
+        <div class="movement-list">
+          <article class="movement-item"><div class="movement-year">Século XII<br>em diante</div><div><h3>Confrarias do Rosário</h3><p>Associações leigas ligadas à oração do rosário se espalharam pela Europa medieval e, mais tarde, pelo mundo. Reúnem oração comunitária, formação e iniciativas de caridade, com organização variável conforme o lugar.</p></div></article>
+          <article class="movement-item"><div class="movement-year">1563</div><div><h3>Congregações Marianas</h3><p>Iniciadas por Jean Leunis entre estudantes jesuítas em Roma, difundiram uma espiritualidade leiga que une devoção a Maria, formação cristã e serviço. A tradição dessas congregações deu origem à Comunidade de Vida Cristã, hoje ecumênica em sua inspiração inaciana.</p></div></article>
+          <article class="movement-item"><div class="movement-year">1914</div><div><h3>Movimento Apostólico de Schoenstatt</h3><p>Fundado pelo padre José Kentenich e por jovens em Schoenstatt, na Alemanha. A espiritualidade se organiza em torno do Santuário de Schoenstatt e da Aliança de Amor com Maria; comunidades e famílias do movimento atuam em muitos países.</p></div></article>
+          <article class="movement-item"><div class="movement-year">1917</div><div><h3>Milícia da Imaculada</h3><p>Fundada em Roma por Maximiliano Kolbe e companheiros franciscanos, propõe consagração à Imaculada e evangelização. Sua atuação inclui iniciativas editoriais, pastorais e missionárias, com presença internacional.</p></div></article>
+          <article class="movement-item"><div class="movement-year">1921</div><div><h3>Legião de Maria</h3><p>Fundada por Frank Duff, em Dublin, como associação de leigos católicos. Organizada em grupos locais, combina oração, vida espiritual e trabalho apostólico e pastoral, em colaboração com as comunidades paroquiais.</p></div></article>
+          <article class="movement-item"><div class="movement-year">1947</div><div><h3>Exército Azul de Nossa Senhora de Fátima</h3><p>O apostolado surgiu nos Estados Unidos para promover a mensagem e a espiritualidade de Fátima. Hoje conhecido como Apostolado Mundial de Fátima, mantém atividades de oração, formação e peregrinação.</p></div></article>
+          <article class="movement-item"><div class="movement-year">1972</div><div><h3>Movimento Sacerdotal Mariano</h3><p>Iniciado pelo padre Stefano Gobbi, reúne sacerdotes e fiéis em torno de encontros de oração e consagração ao Imaculado Coração de Maria. A associação não é um órgão oficial da Santa Sé; seus textos e alegadas mensagens devem ser lidos com esse contexto em mente.</p></div></article>
+        </div>
+      </div>
+      <div class="marian-themes" aria-label="Tradições devocionais marianas">
+        <article class="theme"><h3>Rosário</h3><p>Oração meditativa que percorre episódios da vida de Cristo e Maria. Sua forma e seus mistérios foram se desenvolvendo através dos séculos.</p></article>
+        <article class="theme"><h3>Consagração</h3><p>Prática de entrega espiritual a Deus por meio da intercessão de Maria, expressa de modos diversos nas tradições e comunidades católicas.</p></article>
+        <article class="theme"><h3>Peregrinação</h3><p>Visitas a santuários marianos combinam oração, memória comunitária, busca de cura e expressões locais de fé.</p></article>
+      </div>
+    </section>
+
+    <section class="closing">
+      <p class="eyebrow">Uma memória partilhada</p>
+      <h2>Maria é lembrada de muitas maneiras.</h2>
+      <p>Virgem de Guadalupe, Nossa Senhora Aparecida, de Fátima, de Lourdes, do Carmo, do Rosário: títulos e imagens diferentes contam a história de comunidades que encontraram em Maria uma companhia e uma intercessora. No centro da tradição cristã está o filho que ela anuncia.</p>
+    </section>
+
+    <section class="sources" id="fontes" aria-labelledby="sources-title">
+      <p class="eyebrow">Para continuar a leitura</p>
+      <h2 id="sources-title">Fontes e referências</h2>
+      <div class="source-links">
+        <a href="https://www.vatican.va/archive/bible/nova_vulgata/documents/nova-vulgata_nt_evang-lucam_lt.html" target="_blank" rel="noreferrer">Evangelho de Lucas · Vaticano</a>
+        <a href="https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19641121_lumen-gentium_po.html" target="_blank" rel="noreferrer">Lumen gentium, capítulo VIII</a>
+        <a href="https://www.vatican.va/archive/catechism_po/index_new/p1s2c2_422-682_po.html" target="_blank" rel="noreferrer">Catecismo da Igreja Católica · Cristo e Maria</a>
+        <a href="https://www.vatican.va/content/francesco/pt/motu_proprio/documents/20240517-norme-fenomeni-soprannaturali.html" target="_blank" rel="noreferrer">Normas para discernimento · 2024</a>
+        <a href="https://www.vatican.va/content/francesco/pt/speeches/2024/september/documents/20240919-medjugorje.html" target="_blank" rel="noreferrer">Nota sobre Medjugorje · 2024</a>
+        <a href="https://www.lourdes-france.com/en/" target="_blank" rel="noreferrer">Santuário de Lourdes</a>
+        <a href="https://www.fatima.pt/en" target="_blank" rel="noreferrer">Santuário de Fátima</a>
+        <a href="https://www.santuariodeguadalupe.org.mx/" target="_blank" rel="noreferrer">Basílica de Guadalupe</a>
+        <a href="https://www.a12.com/santuario" target="_blank" rel="noreferrer">Santuário Nacional de Aparecida</a>
+      </div>
+    </section>
+  </main>
+  <footer><span>Uma introdução histórica e devocional, em perspectiva católica.</span><span>As fontes e tradições podem divergir; confira os documentos citados.</span></footer>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const siteNav = document.querySelector('#site-nav');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!isOpen));
+      siteNav.classList.toggle('open', !isOpen);
+    });
+    siteNav.addEventListener('click', (event) => {
+      if (event.target.closest('a')) {
+        siteNav.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    const filters = document.querySelectorAll('.filter');
+    const cards = [...document.querySelectorAll('.apparition-card')];
+    const searchInput = document.querySelector('#apparition-search');
+    const noResults = document.querySelector('#no-results');
+    let activePeriod = 'todos';
+    function updateApparitions() {
+      const query = searchInput.value.trim().toLocaleLowerCase('pt-BR');
+      let visibleCount = 0;
+      cards.forEach((card) => {
+        const periodMatches = activePeriod === 'todos' || card.dataset.period === activePeriod;
+        const searchMatches = !query || `${card.dataset.search} ${card.textContent}`.toLocaleLowerCase('pt-BR').includes(query);
+        card.hidden = !(periodMatches && searchMatches);
+        if (!card.hidden) visibleCount += 1;
+      });
+      noResults.style.display = visibleCount ? 'none' : 'block';
+    }
+    filters.forEach((filter) => filter.addEventListener('click', () => {
+      activePeriod = filter.dataset.period;
+      filters.forEach((button) => button.setAttribute('aria-pressed', String(button === filter)));
+      updateApparitions();
+    }));
+    searchInput.addEventListener('input', updateApparitions);
+  </script>
+</body>
+</html>
