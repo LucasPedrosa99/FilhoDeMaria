@@ -75,6 +75,15 @@
     .era-content h3 { margin-bottom: 7px; color: var(--pine); font-size: 24px; }
     .era-content p { max-width: 690px; margin-bottom: 10px; color: #525f58; font-size: 14px; }
     .source-note { color: #7a837d !important; font-size: 11px !important; }
+    .aparecida { background: #edf0e9; }
+    .aparecida-layout { display: grid; grid-template-columns: 1.15fr .85fr; gap: 50px; align-items: start; }
+    .aparecida-story h3 { margin-bottom: 8px; color: var(--pine); font-size: 24px; }
+    .aparecida-story p { color: #525f58; font-size: 14px; }
+    .aparecida-prayer { padding: 30px; color: var(--white); background: var(--pine); }
+    .aparecida-prayer h3 { margin-bottom: 8px; color: var(--white); font-size: 25px; }
+    .aparecida-prayer .prayer-kind { color: var(--gold) !important; }
+    .aparecida-prayer .prayer-text { color: #f4f1e8 !important; }
+    .aparecida-prayer .source-note { color: #c5d2ca !important; }
     .era-content details { margin-top: 12px; }
     .era-content summary { width: fit-content; color: var(--pine); font-size: 12px; font-weight: 700; cursor: pointer; }
     .detail-copy { max-width: 680px; padding: 12px 0 0; color: var(--muted); font-size: 13px; }
@@ -158,6 +167,7 @@
       .section { padding-top: 70px; padding-bottom: 70px; }
       .apparition-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .movement-layout { gap: 35px; }
+      .aparecida-layout { gap: 28px; }
     }
     @media (max-width: 620px) {
       .topbar { height: 62px; padding: 0 18px; }
@@ -186,6 +196,8 @@
       .apparition-grid { grid-template-columns: 1fr; }
       .apparition-card { min-height: 0; }
       .prayer-grid { grid-template-columns: 1fr; }
+      .aparecida-layout { grid-template-columns: 1fr; gap: 12px; }
+      .aparecida-prayer { padding: 24px; }
       .mary-columns { grid-template-columns: 1fr; }
       .mary-column, .mary-column + .mary-column { padding: 22px 0; border-left: 0; }
       .mary-column + .mary-column { border-top: 1px solid #cbd4ca; }
@@ -310,6 +322,30 @@
             <p>A Igreja Católica define como dogmas a Imaculada Conceição (1854) e a Assunção de Maria (1950). Lourdes e Fátima tornam-se grandes destinos de peregrinação; novas comunidades e movimentos organizam a espiritualidade mariana. O Concílio Vaticano II (1962–1965) trata de Maria no mistério de Cristo e da Igreja, reforçando uma leitura cristocêntrica.</p>
             <p class="source-note">A devoção é incentivada, mas, na doutrina católica, Maria é venerada; a adoração é reservada a Deus.</p>
           </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section aparecida" id="aparecida" aria-labelledby="aparecida-title">
+      <div class="section-heading">
+        <p class="eyebrow">Uma devoção brasileira</p>
+        <h2 id="aparecida-title">Nossa Senhora Aparecida</h2>
+        <p>A história da Padroeira do Brasil começa, segundo a tradição, com uma imagem encontrada nas águas do rio Paraíba do Sul.</p>
+      </div>
+      <div class="aparecida-layout">
+        <article class="aparecida-story">
+          <h3>A imagem encontrada no rio</h3>
+          <p>Em outubro de 1717, três pescadores — Domingos Garcia, João Alves e Filipe Pedroso — tentavam pescar no rio Paraíba do Sul, na região de Guaratinguetá. De acordo com o relato tradicional, depois de várias tentativas sem sucesso, João Alves recolheu nas redes o corpo de uma pequena imagem de Nossa Senhora da Conceição; em seguida, encontrou a cabeça. Depois desse achado, a pesca teria sido abundante.</p>
+          <p>A imagem de terracota, escurecida pelo tempo e pelas águas, passou a ser venerada na casa de Filipe Pedroso. A devoção cresceu, reuniu peregrinos e levou à construção de capelas e, mais tarde, do Santuário Nacional em Aparecida. O nome “Aparecida” recorda que a imagem apareceu nas águas do rio.</p>
+          <p>Em 1930, o papa Pio XI proclamou Nossa Senhora Aparecida Padroeira do Brasil. A Basílica atual tornou-se um dos maiores centros de peregrinação do país. A tradição narra o encontro da imagem; não se trata de um relato de aparição de Maria.</p>
+          <p class="source-note">O episódio de 1717 é transmitido pela tradição devocional. Para conhecer a história e a devoção, consulte o <a href="https://www.a12.com/santuario" target="_blank" rel="noreferrer">Santuário Nacional de Aparecida</a>.</p>
+        </article>
+        <article class="aparecida-prayer" aria-labelledby="aparecida-prayer-title">
+          <p class="eyebrow">Oração</p>
+          <h3 id="aparecida-prayer-title">A Nossa Senhora Aparecida</h3>
+          <p class="prayer-kind">Oração tradicional</p>
+          <p class="prayer-text">Ó incomparável Senhora da Conceição Aparecida, Mãe de meu Deus, Rainha dos Anjos, Advogada dos pecadores, refúgio e consolação dos aflitos e atribulados, ó Virgem Santíssima, cheia de poder e de bondade, lançai sobre nós um olhar favorável, para que sejamos socorridos por vós em todas as necessidades em que nos acharmos. Amém.</p>
+          <p class="source-note">A oração possui versões mais extensas, rezadas na devoção popular.</p>
         </article>
       </div>
     </section>
